@@ -6,40 +6,34 @@ class UserModel{
     public $username;
     public $password;
     public $id;
-    private $db;
+    private $dbObj;
     private $tablename = "tbluser";
 
     public function __construct(){
-        $this->db = new Database();
+        $this->dbObj = new Database();
     }
     public function insert(){
         $sql = "INSERT INTO $this->tablename (name, email,username,password) VALUES('$this->name','$this->email','$this->username', '$this->password')";
-        if($this->db->execute($sql)){
-            return true;
-        }else
-            return false;
+        $this->dbObj->execute($sql);
+
        
     }
     public function update($id){
-        $sql = "UPDATE $this->tablename SET name = 'jeytil' where id = $id";
-        if($this->db->execute($sql)){
-            return true;
-        }else
-            return false;
+        $sql = "UPDATE $this->tablename SET name = '$this->name', email = '$this->email', username = '$this->username', password = '$this->password' where id = $id";
+        $this->dbObj->execute($sql);
+
     }
     public function delete($id){
         $sql = "DELETE FROM $this->tablename where id = $id";
-        if($this->db->execute($sql)){
-            return true;
-        }else
-            return false;
+        $this->dbObj->execute($sql);
+  
     }
     public function readAll(){
         $sql = "SELECT * FROM $this->tablename";
-        return $this->db->execute($sql);
+        return $this->dbObj->execute($sql);
     }
     public function __destruct(){
-        unset($this->db);
+        unset($this->dbObj);
     }
 }
 // $userModel = new UserModel();
