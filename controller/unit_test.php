@@ -1,7 +1,7 @@
 <?php
     require("UserController.php");
     $usercontObj = new UserController();
-    $id = 9;
+    $id = 7;
     $name = "glicerio";
     $email = "glicerio@gmail.com";
     $username = "taglo";
@@ -21,7 +21,7 @@
     echo "</br>";
     //CASE#4: Delete record
     echo "Test Case#4 result: ";
-    var_dump($usercontObj->deleteUser(16));
+    var_dump($usercontObj->deleteUser(28));
     echo "</br>";
     //CASE#5: Inserting record
     echo "Test Case#5 result: ";
@@ -33,7 +33,7 @@
     echo "</br>";
     //CASE#7: Updating record
     echo "Test Case#7 result: ";
-    $usercontObj->updateUser(4,$name,$email,$username,$password);
+    $usercontObj->updateUser(2,$name,$email,$username,$password);
     echo "</br>";
     //CASE#8: Delete record
     echo "Test Case#8 result: ";

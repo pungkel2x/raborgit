@@ -1,5 +1,5 @@
 <?php
-require("Database.php");
+require("../Database.php");
 class UserModel{
     public $name;
     public $email;

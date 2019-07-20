@@ -1,5 +1,5 @@
 <?php
-require("UserModel.php");
+require("../model/UserModel.php");
 class UserController{
     private $usermodelObj;
 
@@ -14,7 +14,7 @@ class UserController{
         $this->usermodelObj->password = $password;
         if(!empty($name)&&!empty($email)&&!empty($username)&&!empty($password)){
             if(preg_match('~[0-9]~' ,$name)){
-                echo("ERRORr: Name contains Number");
+                echo("ERROR: Name contains Number");
                 exit();
             }elseif (filter_var($email, FILTER_VALIDATE_EMAIL)){
                 $this->usermodelObj->insert();
